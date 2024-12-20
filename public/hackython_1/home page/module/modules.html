@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Modules</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+            --hover-color: #2980b9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .module-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .module-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .module-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .module-description {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        @media (max-width: 600px) {
+            .module-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Learning Modules</h1>
+        <div class="module-grid">
+            <div class="module-card" onclick="redirectToModule('Basics')">
+                <div class="module-icon">📚</div>
+                <h2 class="module-title">Basics</h2>
+                <p class="module-description">Get started with the basics of our course.</p>
+            </div>
+            <div class="module-card" onclick="redirectToModule('fundamentals')">
+                <div class="module-icon">🔬</div>
+                <h2 class="module-title">Fundamentals</h2>
+                <p class="module-description">Learn the core concepts and principles.</p>
+            </div>
+            <div class="module-card" onclick="redirectToModule('advanced-topics')">
+                <div class="module-icon">🚀</div>
+                <h2 class="module-title">Advanced Topics</h2>
+                <p class="module-description">Dive deep into complex subjects and techniques.</p>
+            </div>
+            <div class="module-card" onclick="redirectToModule('practical-applications')">
+                <div class="module-icon">💼</div>
+                <h2 class="module-title">Practical Applications</h2>
+                <p class="module-description">Apply your knowledge to real-world scenarios.</p>
+            </div>
+            <div class="module-card" onclick="redirectToModule('capstone-project')">
+                <div class="module-icon">🏆</div>
+                <h2 class="module-title">Capstone Project</h2>
+                <p class="module-description">Showcase your skills with a final project.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function redirectToModule(moduleName) {
+            // In a real application, you would redirect to actual pages
+            // For demonstration, we'll use an alert
+            alert(`Redirecting to ${moduleName} module page`);
+            // Uncomment the line below to actually redirect:
+             window.location.href = `moduels/${moduleName}.html`;
+        }
+    </script>
+</body>
+</html>

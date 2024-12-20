@@ -34,7 +34,7 @@ navLinks.addEventListener('click', (e) => {
 function redirectToPage(pageName) {
     // In a real application, you would redirect to actual pages
     alert(`Redirecting to ${pageName} page`);
-    window.location.href = "module/module.html";  // Corrected line for redirection
+    window.location.href = `home page/module/${pageName}.html`;  // Corrected line for redirection
 }
 
 navLinks.addEventListener('click', (e) => {

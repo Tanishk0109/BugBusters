@@ -22,7 +22,7 @@ const User = mongoose.model('User', userSchema);
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('public/hackython_1'));
 app.use(session({
   secret: 'mySecretKey',
   saveUninitialized: false, // Change to false to avoid creating sessions for unauthenticated users
@@ -31,9 +31,9 @@ app.use(session({
 // Routes
 app.get('/', (req, res) => {
   if (req.session.user) {
-    res.sendFile(__dirname + '/public/hwl.html');
+    res.sendFile(__dirname + '/public/hackython_1/home.html');
   } else {
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/public/hackython_1/index.html');
   }
 });
 
@@ -50,7 +50,7 @@ app.post('/login', async (req, res) => {
 });
 
 app.get('/register', (req, res) => {
-  res.sendFile(__dirname + '/public/register.html');
+  res.sendFile(__dirname + '/public/hackython_1/register.html');
 });
 
 app.post('/register', async (req, res) => {
