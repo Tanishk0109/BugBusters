@@ -25,7 +25,6 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use(session({
   secret: 'mySecretKey',
-  resave: false,
   saveUninitialized: false, // Change to false to avoid creating sessions for unauthenticated users
 }));
 
@@ -44,7 +43,7 @@ app.post('/login', async (req, res) => {
 
   if (user && await bcrypt.compare(password, user.password)) {
     req.session.user = user;
-    res.redirect('/');
+    res.redirect('hwl.html');
   } else {
     res.send('<h1>Invalid username or password</h1><a href="/">Try Again</a>');
   }
