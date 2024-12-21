@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BugBusters</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: white;
+            transform: skewY(-3deg);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        p, ul {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--secondary-color);
+            transform: skewY(-3deg);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .team-member img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+        }
+
+        .solution-item {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .solution-item:hover {
+            background-color: #e9ecef;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+            margin: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Our Mission</h2>
+            <p>
+                At <strong>BugBusters</strong>, our mission is to bridge the communication gap between deaf and mute individuals 
+                and the broader community through innovative technology solutions. We aim to foster inclusivity, 
+                empower educational access, and promote social integration for everyone.
+            </p>
+        </section>
+        
+        <section>
+            <h2>Our Team</h2>
+            <div class="team-member">
+                <img src="/placeholder.svg?height=50&width=50" alt="V. Rishitha">
+                <div>
+                    <strong>V. Rishitha</strong> - Team Leader<br>
+                    rishvreddy@gmail.com | 8121127231
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="/placeholder.svg?height=50&width=50" alt="Sahana M T">
+                <div>
+                    <strong>Sahana M T</strong> - Team Member<br>
+                    sahanamt1934@gmail.com | 6363148393
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="/placeholder.svg?height=50&width=50" alt="G. Pavan Sai">
+                <div>
+                    <strong>G. Pavan Sai</strong> - Team Member<br>
+                    gajjalapavansai007@gmail.com | 8247257712
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="/placeholder.svg?height=50&width=50" alt="A. Raja Tanishk Reddy">
+                <div>
+                    <strong>A. Raja Tanishk Reddy</strong> - Team Member<br>
+                    tanishkreddy09@gmail.com | 9381389046
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Our Vision</h2>
+            <p>
+                We envision a world where communication barriers no longer hinder social, educational, 
+                or professional opportunities for deaf and mute individuals. Our platform is designed to 
+                foster inclusivity and empower individuals to connect seamlessly with the community.
+            </p>
+        </section>
+
+        <section>
+            <h2>The Problem We Address</h2>
+            <p>
+                Deaf and mute individuals face significant challenges in communication and education due to 
+                the lack of accessible tools bridging sign language with spoken languages. This creates social 
+                isolation and limited opportunities. Our platform tackles these challenges by providing 
+                innovative solutions that promote inclusivity and accessibility.
+            </p>
+        </section>
+
+        <section>
+            <h2>Our Solution</h2>
+            <div class="solution-item">
+                <strong>Sign Language to English Converter:</strong> Real-time translation of sign language to text or speech using machine learning.
+            </div>
+            <div class="solution-item">
+                <strong>Interactive Educational Modules:</strong> Accessible learning materials designed for deaf and mute students.
+            </div>
+            <div class="solution-item">
+                <strong>Quizzes and Assessments:</strong> Inclusive assessments to test and track progress with sign language support.
+            </div>
+            <div class="solution-item">
+                <strong>Community Support:</strong> A space for sharing experiences and accessing mentorship resources.
+            </div>
+            <div class="solution-item">
+                <strong>Real-Time Communication Tools:</strong> Video-based communication tools for seamless interaction.
+            </div>
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <p>
+                Want to learn more about our platform or have any questions? Reach out to us:
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i>📧</i>
+                    <p><a href="mailto:rishvreddy@gmail.com">rishvreddy@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i>📞</i>
+                    <p>8121127231</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 BugBusters. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
