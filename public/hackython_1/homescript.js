@@ -33,7 +33,7 @@ navLinks.addEventListener('click', (e) => {
 // Page redirection for nav items and cards
 function redirectToPage(pageName) {
     // In a real application, you would redirect to actual pages
-    alert(`Redirecting to ${pageName} page`);
+    // alert(`Redirecting to ${pageName} page`);
     window.location.href = `home page/module/${pageName}.html`;  // Corrected line for redirection
 }
 
