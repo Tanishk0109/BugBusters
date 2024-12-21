@@ -70,7 +70,7 @@ h1 {
     text-align: center;
 }
 .hero {
-    background-image: url(bg1.jpg);
+    background-image: url(homeimages/bg1.jpg);
   
     background-size: cover;
     background-position: center;
@@ -97,6 +97,7 @@ h1 {
 .hero-content {
     z-index: 1;
     max-width: 600px;
+   
 }
 .hero h2 {
     font-size: 2.5rem;
