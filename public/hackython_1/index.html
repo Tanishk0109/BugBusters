@@ -12,108 +12,108 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            background: linear-gradient(135deg, #8a2387, #e94057, #f27121);
+            background: linear-gradient(135deg, #7F00FF, #E100FF);
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
+            background-image: url(backgroundofIndex2.jpg);
+            
         }
+        
+        
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+            animation: fadeIn 1.2s ease-in-out;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #fff;
             text-align: center;
             margin-bottom: 2rem;
-            animation: fadeInDown 1s ease-out;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         .content-box {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s ease-out;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .content-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
         }
 
         .image-text-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         img {
             max-width: 100%;
-            height: auto;
             border-radius: 10px;
-            margin-bottom: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
         }
 
         h2 {
             color: #6f286d;
             margin-top: 0;
+            font-size: 1.8rem;
         }
 
         ul {
-            padding-left: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        ul li {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
         .highlight {
             font-weight: 600;
             color: #e94057;
+            font-size: 1.4rem;
+            text-align: center;
         }
 
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 3rem;
-            }
-
-            .image-text-container {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-start;
-            }
-
-            img {
-                max-width: 25%;
-                margin-right: 2rem;
-                margin-bottom: 0;
-                height: 25%;
-            }
-        }
         button.ho {
-            padding: 10px 20px; /* Button padding */
-            font-size: 16px; /* Font size */
-            cursor: pointer; /* Pointer cursor on hover */
-            border: none; /* Remove default button border */
-            background-color: #4CAF50; /* Button background color */
-            color: white; /* Text color */
-            text-align: center; /* Center text inside the button */
+            padding: 12px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #4CAF50, #43A047);
+            color: white;
+            text-align: center;
+            transition: background 0.3s ease, transform 0.3s ease;
+            display: block;
+            margin: 1rem auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
+        button.ho:hover {
+            background: linear-gradient(90deg, #43A047, #388E3C);
+            transform: translateY(-5px);
+        }
+
         button.ho a {
-            text-decoration: none; /* Remove underline */
-            color: white; /* Text color to match the button */
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
         }
 
-        
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -123,11 +123,30 @@
                 transform: translateY(0);
             }
         }
+
+        @media (min-width: 768px) {
+            .image-text-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            img {
+                max-width: 40%;
+                margin-right: 2rem;
+                margin-bottom: 0;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- <img class=".bgimg" src="backgroundofIndex1.jpg"> -->
     <div class="container">
-        <h1>Introduction to the  Sign Language</h1>
+        <h1>Introduction to the Sign Language</h1>
         
         <div class="content-box">
             <p>
@@ -135,7 +154,7 @@
             </p>
             
             <div class="image-text-container">
-                <img src="sign_00.jpg" height="3px" alt="People communicating in sign language">
+                <img src="photoofindex.jpg" alt="People communicating in sign language">
                 <p>
                     Learning sign language is a powerful way to connect with people who communicate using their hands, facial expressions, and gestures instead of sound. It's not just about learning a new language—it's about becoming part of a community and empowering individuals to express themselves, share ideas, and participate fully in society.
                 </p>
@@ -161,7 +180,8 @@
                 Ultimately, sign language is more than just a tool—it's a symbol of respect, empathy, and equality. It helps create a world where everyone, regardless of their hearing ability, can be heard and understood.
             </p>
         </div>
-        <button class="ho"><a href="index1.html">Login</a> </button>
+
+        <button class="ho"><a href="index1.html">Login</a></button>
     </div>
 </body>
 </html>
