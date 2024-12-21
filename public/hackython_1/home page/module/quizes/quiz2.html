@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+    <head>
+        <title>QUIZ-APP</title>
+        <link rel="stylesheet" href="hack.css"/>
+    </head>
+    <body>
+        <div class="app">
+            <h1> QUIZ-2 </h1>
+            <div class="quiz">
+                <h2 id="question">Question Goes here</h2>
+                <div id="answer-button">
+                    <button class="btn">Answer 1</button>
+                    <button class="btn">Answer 2</button>
+                    <button class="btn">Answer 3</button>
+                    <button class="btn">Answer 4</button>
+                </div>
+                <button id="next-btn">NEXT</button>
+
+            </div>
+        </div>
+        <script>
+            const questions=[
+
+{
+    question:  "What is the sign for `food`?",
+    answers: [
+        {text: "a. A hand tapping your stomach", correct: false},
+        {text: "b.A hand mimicking eating from  a spoon", correct: false},
+        {text: "c.Bringning fngertips to your stomach", correct: true},
+        {text: "d.Tapping your mouth with your index finger", correct: false}
+    ]
+    
+},
+{
+    question:  "Which of these is the sign for `red`?",
+    answers: [
+        {text: "a.Touching your nose with your finger", correct: false},
+        {text: "b.Moving your index finger down the front of your lips", correct: true},
+        {text: "c.Touching your lips and moving down", correct: false},
+        {text: "d.Waving your hand in front of your face", correct: false}
+    ]
+    
+},
+{
+    question: "How would you sign `I need help` in a shopping situation?",
+    answers: [
+        {text: "a. Point to yourself, then sign `help`", correct: true},
+        {text: "b. Point to the item, then sign `need`", correct: false},
+        {text: "c. Shake your head and cross your arms", correct: false},
+        {text: "d. Mimic paying with hands", correct: false}
+    ]
+    
+},
+{
+    question: "What does the sign for `bus' look like?",
+    answers: [
+        {text: "a.Moving fingers in a rectangular shape", correct: false},
+        {text: "b.Mimicking a steering wheel", correct: false},
+        {text: "c.A `B' handshape moving forward", correct: true},
+        {text: "d.Fingers making a waving motion", correct: false}
+    ]
+    
+}, {
+    question: "Which of the following phrases can be used when asking for directions?",
+    answers: [
+        {text: "a.`Where go?`", correct: true},
+        {text: "b.`Help shop?`", correct: false},
+        {text: "c.`Thank you now?`", correct: false},
+        {text: "d.`Please buy`", correct: false}
+    ]
+    
+},
+{
+    question: "How would you sign `coffee` in a café scenario?",
+    answers: [
+        {text: "a.Mimic pouring water", correct: false},
+        {text: "b. Circular motion of one fist on top of the other", correct: true},
+        {text: "c. Pretend to drink from a cup", correct: false},
+        {text: "d. Tap your lips with your fingers", correct: false}
+    ]
+    
+},
+{
+    question: "What does the sign for `blue` involve?",
+    answers: [
+        {text: "a.A `B' handshape moving side to side", correct: true},
+        {text: "b.Pointing to the sky", correct: false},
+        {text: "c.A flat hand shaking left to right", correct: false},
+        {text: "d.Moving a `B' handshape in circles", correct: false}
+    ]
+    
+},
+{
+    question: "What is the sign for `money`",
+    answers: [
+        {text: "a. Touching your thumb and fingers together and tapping your palm", correct: true},
+        {text: "b. Shaking your hand in the air", correct: false},
+        {text: "c. Pointing to your pocket", correct: false},
+        {text: "d. Mimicking counting coins", correct: false}
+    ]
+    
+},
+{
+    question: "Which of these is correct for signing `bus stop`?",
+    answers: [
+        {text: "a. Sign `bus,` then mimic a stop motion with your hand", correct: true},
+        {text: "b. Draw a rectangle and sign `stop`", correct: false},
+        {text: "c. Sign `bus,` then clap your hands", correct: false},
+        {text: "d. Mimic riding a bus", correct: false}
+    ]
+    
+},
+{
+    question: "How do you sign `thank you for your help`?",
+    answers: [
+        {text: "a. Sign `thank you,` point to the person, then sign `help`", correct: true},
+        {text: "b. Wave at the person, then sign `help`", correct: false},
+        {text: "c. Sign `you thank help`", correct: false},
+        {text: "d.Clap your hands twice", correct: false}
+    ]
+    
+}
+]
+const questionElement = document.getElementById("question");
+const answerButton = document.getElementById("answer-button");
+const nextbutton = document.getElementById("next-btn");
+
+let currentQuesIndex = 0;
+let score = 0;
+
+function startQuiz() {
+    currentQuesIndex = 0;
+    score = 0;
+    nextbutton.innerHTML = "Next";
+    showQuestion();
+}
+
+function showQuestion() {
+    resetState();
+    let currentQuestion = questions[currentQuesIndex];
+    let questionNo = currentQuesIndex + 1;
+    questionElement.innerHTML = questionNo + " . " + currentQuestion.question;
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButton.appendChild(button);
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+    });
+}
+
+function resetState() {
+    nextbutton.style.display = "none";
+    while (answerButton.firstChild) {
+        answerButton.removeChild(answerButton.firstChild);
+    }
+}
+function selectAnswer(e) {
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        score++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+    }
+    Array.from(answerButton.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+    nextbutton.style.display = "block";
+}
+function getRemarks(score) {
+    const percentage = (score / questions.length) * 100;
+
+    if (percentage >= 80) {
+        return "Excellent";
+    } else if (percentage >= 60) {
+        return "Good";
+    } else if (percentage >= 40) {
+        return "Average";
+    } else {
+        return "Poor";
+    }
+}
+
+function showScore() {
+    resetState();
+    const remarks = getRemarks(score);
+    questionElement.innerHTML = `
+        You scored ${score} out of ${questions.length}!<br> 
+        Remark: ${remarks}
+    `;
+    nextbutton.innerHTML = "DashBoard";
+    nextbutton.style.display = "block";
+}
+function handleNextQuestion() {
+    currentQuesIndex++;
+    if (currentQuesIndex < questions.length) {
+        showQuestion();
+    } else {
+        showScore();
+    }
+}
+
+nextbutton.addEventListener("click", () => {
+    if (currentQuesIndex < questions.length) {
+        handleNextQuestion();
+    } else {
+        startQuiz();
+    }
+});
+
+startQuiz();
+        </script>
+   </body>
+</html>

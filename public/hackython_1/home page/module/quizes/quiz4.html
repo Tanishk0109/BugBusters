@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+    <head>
+        <title>QUIZ-APP</title>
+        <link rel="stylesheet" href="hack.css"/>
+    </head>
+    <body>
+        <div class="app">
+            <h1> QUIZ-4 </h1>
+            <div class="quiz">
+                <h2 id="question">Question Goes here</h2>
+                <div id="answer-button">
+                    <button class="btn">Answer 1</button>
+                    <button class="btn">Answer 2</button>
+                    <button class="btn">Answer 3</button>
+                    <button class="btn">Answer 4</button>
+                </div>
+                <button id="next-btn">NEXT</button>
+
+            </div>
+        </div>
+        <script>
+            const questions=[
+{
+    question: "Which of the following is a complete sentence in sign language?",
+    answers: [
+        {text: "a. `Go school`", correct: false},
+        {text: "b. `I go school`", correct: true},
+        {text: "c. `School me`", correct: false},
+        {text: "d. `Go me school`", correct: false}
+    ]
+    
+},
+{
+    question: ". What does sign culture emphasize?",
+    answers: [
+        {text: "a. Avoiding facial expressions", correct: false},
+        {text: "b. Clear and expressive signing", correct: true},
+        {text: "c. Speaking loudly while signing", correct: false},
+        {text: "d. Using only gestures", correct: false}
+    ]
+    
+},
+{
+    question: "Which sign represents `teacher`?",
+    answers: [
+        {text: "a. Mimicking writing on a board", correct: false},
+        {text: "b. A `T`handshape moved outward", correct: false},
+        {text: "c. Signing `teach` followed by the person sign", correct: true},
+        {text: "d. A `T` handshape moved down", correct: false}
+    ]
+    
+},
+{
+    question: "How do you express the emotion `happy` in sign language?",
+    answers: [
+        {text: "a. Circular movements with both hands on your chest", correct: true},
+        {text: "b. Moving your hands upward from your chest ", correct: false},
+        {text: "c. Smiling while clapping", correct: false},
+        {text: "d. Waving both hands in the air", correct: false}
+    ]
+    
+},
+{
+    question: "What is the sign for `hospital`?",
+    answers: [
+        {text: "a. Drawing a cross on your arm with an `H` handshape", correct: true},
+        {text: "b. Moving your hands in the shape of a building", correct: false},
+        {text: "c. Signing `help` and `please'", correct: false},
+        {text: "d. Pointing to your wrist and mimicking checking the pulse", correct: false}
+    ]
+    
+},
+{
+    question: "In a real-life scenario, how would you sign `I need water`?",
+    answers: [
+        {text: "a. Point to yourself, sign `need,` then `water`", correct: true},
+        {text: "b. Sign `water` and point to your throat", correct: false},
+        {text: "c. Mimic drinking with your hands", correct: false},
+        {text: "d. Sign `water` repeatedly", correct: false}
+    ]
+    
+},
+{
+    question: "Why is cultural understanding important in sign language?",
+    answers: [
+        {text: "a. To avoid miscommunication and show respect", correct: true},
+        {text: "b. To learn faster", correct: false},
+        {text: "c. To practice more hand signs", correct: false},
+        {text: "d. It is not necessary for signing", correct: false}
+    ]
+    
+},
+{
+    question: ". How do you sign `doctor`?",
+    answers: [
+        {text: "a. Tapping your wrist with a `D` handshape", correct: false},
+        {text: "b. Tapping your forehead with your fingers", correct: false},
+        {text: "c. Tapping your wrist with fingertips", correct: true},
+        {text: "d. A `D` handshape moved downward", correct: false}
+    ]
+    
+},
+{
+    question: "What is the sign for `sad`?",
+    answers: [
+        {text: "a. Dragging your hands down your face", correct: true},
+        {text: "b. Crossing your arms in front of you", correct: false},
+        {text: "c. Waving both hands in the air", correct: false},
+        {text: "d. Making a `thumbs down` gesture", correct: false}
+    ]
+    
+},
+{
+    question: "How do you sign `police officer`?",
+    answers: [
+        {text: "a. Tapping your chest with a `C` handshape", correct: false},
+        {text: "b. Mimicking writing on a notebook", correct: false},
+        {text: "c. Tapping your chest with a curved hand (badge motion)", correct: true},
+        {text: "d. A `P` handshape moving in a circle", correct: false}
+    ]
+    
+},
+{
+    question: "What is the best way to practice fluency in sign language?",
+    answers: [
+        {text: "a. Watching videos without practicing", correct: false},
+        {text: "b. Signing with others regularly and immersing in sign culture", correct: true},
+        {text: "c. Reading books about sign language", correct: false},
+        {text: "d. Memorizing only the vocabulary", correct: false}
+    ]
+    
+}
+]
+const questionElement = document.getElementById("question");
+const answerButton = document.getElementById("answer-button");
+const nextbutton = document.getElementById("next-btn");
+
+let currentQuesIndex = 0;
+let score = 0;
+
+function startQuiz() {
+    currentQuesIndex = 0;
+    score = 0;
+    nextbutton.innerHTML = "Next";
+    showQuestion();
+}
+
+function showQuestion() {
+    resetState();
+    let currentQuestion = questions[currentQuesIndex];
+    let questionNo = currentQuesIndex + 1;
+    questionElement.innerHTML = questionNo + " . " + currentQuestion.question;
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButton.appendChild(button);
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+    });
+}
+
+function resetState() {
+    nextbutton.style.display = "none";
+    while (answerButton.firstChild) {
+        answerButton.removeChild(answerButton.firstChild);
+    }
+}
+function selectAnswer(e) {
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        score++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+    }
+    Array.from(answerButton.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+    nextbutton.style.display = "block";
+}
+function getRemarks(score) {
+    const percentage = (score / questions.length) * 100;
+
+    if (percentage >= 80) {
+        return "Excellent";
+    } else if (percentage >= 60) {
+        return "Good";
+    } else if (percentage >= 40) {
+        return "Average";
+    } else {
+        return "Poor";
+    }
+}
+
+function showScore() {
+    resetState();
+    const remarks = getRemarks(score);
+    questionElement.innerHTML = `
+        You scored ${score} out of ${questions.length}!<br> 
+        Remark: ${remarks}
+    `;
+    nextbutton.innerHTML = "DashBoard";
+    nextbutton.style.display = "block";
+}
+function handleNextQuestion() {
+    currentQuesIndex++;
+    if (currentQuesIndex < questions.length) {
+        showQuestion();
+    } else {
+        showScore();
+    }
+}
+
+nextbutton.addEventListener("click", () => {
+    if (currentQuesIndex < questions.length) {
+        handleNextQuestion();
+    } else {
+        startQuiz();
+    }
+});
+
+startQuiz();
+        </script>
+   </body>
+</html>
