@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: Practical Interaction Conversation</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            flex-grow: 1;
+            transition: background-color 0.3s;
+        }
+
+        .tab-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .tab-button.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Tab content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Word grids */
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .word-item {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .word-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Phrase list */
+        .phrase-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .phrase-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .phrase-item img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        /* Practice sections */
+        .practice-exercise, .practice-scenario {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 40px;
+        }
+
+        /* Module summary */
+        .module-summary {
+            background-color: #e6f2ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 40px;
+        }
+
+        .module-summary ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                margin-bottom: 10px;
+            }
+
+            .phrase-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .word-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Accessibility */
+        .tab-button:focus,
+        .word-item:focus-within,
+        .phrase-item:focus-within {
+            outline: 2px solid #007bff;
+        }
+
+        /* Print styles */
+        @media print {
+            .tabs {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+            }
+
+            .word-item,
+            .phrase-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Module 2: Practical Interaction Conversation</h1>
+
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="essential-words">Essential Words</button>
+            <button class="tab-button" data-tab="basic-phrases">Basic Conversation Phrases</button>
+            <button class="tab-button" data-tab="situational">Situational Vocabulary</button>
+        </nav>
+
+        <section id="essential-words" class="tab-content active">
+            <h2>Signs for Essential Words</h2>
+            <p>Learn signs for food, colors, and essential items</p>
+            <div class="word-category">
+                <h3>Food Signs</h3>
+                <div class="word-grid">
+                    <div class="word-item">
+                        <img src="images/apple.jpg" alt="Sign for Apple" width="150" height="150">
+                        <h4>Apple</h4>
+                        <p>Make a fist with your index knuckle extended, then twist it against your cheek.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="images/bread.jpg" alt="Sign for Bread" width="150" height="150">
+                        <h4>Bread</h4>
+                        <p>Using both hands, make cutting motions as if slicing a loaf of bread.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="images/water.jpg" alt="Sign for Water" width="150" height="150">
+                        <h4>Water</h4>
+                        <p>Form a 'W' with your dominant hand and tap it on your chin twice.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="word-category">
+                <h3>Color Signs</h3>
+                <div class="word-grid">
+                    <div class="word-item">
+                        <img src="images/red.jpg" alt="Sign for Red" width="150" height="150">
+                        <h4>Red</h4>
+                        <p>Touch your lips with the index finger of your dominant hand.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Blue" width="150" height="150">
+                        <h4>Blue</h4>
+                        <p>Make a 'B' hand shape and wave it side to side in front of you.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="images/green.gif" alt="Sign for Green" width="150" height="150">
+                        <h4>Green</h4>
+                        <p>Make a 'G' hand shape and shake it side to side.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="word-category">
+                <h3>Essential Items</h3>
+                <div class="word-grid">
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Phone" width="150" height="150">
+                        <h4>Phone</h4>
+                        <p>Make a 'Y' hand shape and put it to your ear.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Keys" width="150" height="150">
+                        <h4>Keys</h4>
+                        <p>Mimic turning a key in a lock with your index finger and thumb.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Wallet" width="150" height="150">
+                        <h4>Wallet</h4>
+                        <p>Pat your back pocket or hip area where you'd keep a wallet.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Content continues here... -->
+        </section>
+
+        <section id="basic-phrases" class="tab-content">
+            <h2>Basic Conversation Phrases</h2>
+            <p>Learn essential phrases for everyday communication</p>
+            <div class="phrase-list">
+                <div class="phrase-item">
+                    <img src="placeholder.svg" alt="Sign for Hello" width="150" height="150">
+                    <div class="phrase-content">
+                        <h3>Hello</h3>
+                        <p>Wave your hand, or sign by touching your forehead with your dominant hand and moving it away.</p>
+                    </div>
+                </div>
+                <div class="phrase-item">
+                    <img src="placeholder.svg" alt="Sign for How are you?" width="150" height="150">
+                    <div class="phrase-content">
+                        <h3>How are you?</h3>
+                        <p>Point to the other person, then make two fists and rotate them in front of your chest.</p>
+                    </div>
+                </div>
+                <div class="phrase-item">
+                    <img src="placeholder.svg" alt="Sign for Thank you" width="150" height="150">
+                    <div class="phrase-content">
+                        <h3>Thank you</h3>
+                        <p>Touch your chin or lips with your fingertips, then move your hand forward and down.</p>
+                    </div>
+                </div>
+                <div class="phrase-item">
+                    <img src="placeholder.svg" alt="Sign for Please" width="150" height="150">
+                    <div class="phrase-content">
+                        <h3>Please</h3>
+                        <p>Rub your chest in a circular motion with an open hand.</p>
+                    </div>
+                </div>
+                <div class="phrase-item">
+                    <img src="placeholder.svg" alt="Sign for Sorry" width="150" height="150">
+                    <div class="phrase-content">
+                        <h3>Sorry</h3>
+                        <p>Make a fist and rub it in a circular motion over your chest.</p>
+</div>
+</div>
+</div>
+<div class="practice-exercise">
+    <h3>Practice Exercise</h3>
+    <p>Try combining these phrases into a short conversation:</p>
+    <ol>
+        <li>Greet someone (Hello)</li>
+        <li>Ask how they are (How are you?)</li>
+        <li>Respond with "Thank you" after they answer</li>
+        <li>Ask for something using "Please"</li>
+        <li>If you make a mistake, use "Sorry"</li>
+    </ol>
+    <p>Practice this sequence in front of a mirror, focusing on smooth transitions between signs.</p>
+</div>
+
+            <!-- Content continues here... -->
+        </section>
+
+        <section id="situational" class="tab-content">
+            <h2>Situational Vocabulary</h2>
+            <p>Learn signs for shopping and transportation scenarios</p>
+            <!-- Content continues here... -->
+            <div class="word-category">
+                <h3>Shopping Vocabulary</h3>
+                <div class="word-grid">
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Store" width="150" height="150">
+                        <h4>Store</h4>
+                        <p>Make an 'S' hand shape and move it in a square shape in front of you.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Money" width="150" height="150">
+                        <h4>Money</h4>
+                        <p>Rub your thumb against your fingertips, like feeling paper money.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Expensive" width="150" height="150">
+                        <h4>Expensive</h4>
+                        <p>Pull your hand away from your chin, closing your fingers as you do.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Cheap" width="150" height="150">
+                        <h4>Cheap</h4>
+                        <p>Make a 'Y' hand shape and move it downwards quickly.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Buy" width="150" height="150">
+                        <h4>Buy</h4>
+                        <p>Move a flat hand from your chest outward, as if handing over money.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Sale" width="150" height="150">
+                        <h4>Sale</h4>
+                        <p>Make 'S' hand shapes with both hands and move them down, like price tags dropping.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="word-category">
+                <h3>Transportation Vocabulary</h3>
+                <div class="word-grid">
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Car" width="150" height="150">
+                        <h4>Car</h4>
+                        <p>Make 'C' hand shapes with both hands and move them as if steering a car.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Bus" width="150" height="150">
+                        <h4>Bus</h4>
+                        <p>Make 'B' hand shapes with both hands and move them down, like bus doors closing.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Train" width="150" height="150">
+                        <h4>Train</h4>
+                        <p>Move your index and middle fingers in a line, like train tracks.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Airplane" width="150" height="150">
+                        <h4>Airplane</h4>
+                        <p>Make a 'Y' hand shape and move it forward like a plane taking off.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Ticket" width="150" height="150">
+                        <h4>Ticket</h4>
+                        <p>Pinch your fingers together and move them across your palm, like tearing a ticket.</p>
+                    </div>
+                    <div class="word-item">
+                        <img src="placeholder.svg" alt="Sign for Late" width="150" height="150">
+                        <h4>Late</h4>
+                        <p>Tap your wrist where a watch would be, then point behind you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="practice-scenario">
+                <h3>Practice Scenario</h3>
+                <p>Imagine you're planning a shopping trip. Practice signing this scenario:</p>
+                <ol>
+                    <li>You want to go to the store</li>
+                    <li>You need to take the bus</li>
+                    <li>You hope to find a sale</li>
+                    <li>You have some money to spend</li>
+                    <li>You don't want to be late</li>
+                </ol>
+                <p>Try to use as many of the shopping and transportation signs as you can in this scenario.</p>
+            </div>
+        </section>
+
+        <section class="module-summary">
+            <h2>Module 2 Summary</h2>
+            <p>Key takeaways from Practical Interaction Conversation</p>
+            <ul>
+                <li>Learned signs for essential words including food, colors, and everyday items</li>
+                <li>Practiced basic conversation phrases for everyday communication</li>
+                <li>Explored situational vocabulary for shopping and transportation scenarios</li>
+                <li>Engaged in practice exercises to reinforce learning and improve fluency</li>
+                <li>Gained practical skills for real-world sign language interactions</li>
+            </ul>
+
+        </section>
+        </div>
+
+       
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get all tab buttons and content sections
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+          
+            // Function to set the active tab
+            function setActiveTab(tabId) {
+              // Remove active class from all tabs and contents
+              tabButtons.forEach(button => button.classList.remove('active'));
+              tabContents.forEach(content => content.classList.remove('active'));
+          
+              // Add active class to the selected tab and content
+              const selectedButton = document.querySelector(`[data-tab="${tabId}"]`);
+              const selectedContent = document.getElementById(tabId);
+              selectedButton.classList.add('active');
+              selectedContent.classList.add('active');
+          
+              // Update the URL hash
+              window.location.hash = tabId;
+            }
+          
+            // Add click event listeners to tab buttons
+            tabButtons.forEach(button => {
+              button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                setActiveTab(tabId);
+              });
+            });
+          
+            // Handle initial load and browser back/forward
+            function handleHashChange() {
+              const hash = window.location.hash.slice(1);
+              if (hash && document.getElementById(hash)) {
+                setActiveTab(hash);
+              } else {
+                // Default to the first tab if no hash or invalid hash
+                setActiveTab(tabButtons[0].getAttribute('data-tab'));
+              }
+            }
+          
+            window.addEventListener('hashchange', handleHashChange);
+            handleHashChange(); // Handle initial load
+          
+            // Keyboard navigation for tabs
+            tabButtons.forEach((button, index) => {
+              button.addEventListener('keydown', (e) => {
+                let nextIndex;
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                  nextIndex = (index + 1) % tabButtons.length;
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                  nextIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+                }
+          
+                if (nextIndex !== undefined) {
+                  e.preventDefault();
+                  tabButtons[nextIndex].focus();
+                  tabButtons[nextIndex].click();
+                }
+              });
+            });
+          
+            // Add smooth scrolling for in-page links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+              anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').slice(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                  targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                }
+              });
+            });
+          
+            // Optional: Add animation to practice sections
+            const practiceElements = document.querySelectorAll('.practice-exercise, .practice-scenario');
+            practiceElements.forEach(element => {
+              element.style.transition = 'background-color 0.3s ease';
+              element.addEventListener('mouseenter', () => {
+                element.style.backgroundColor = '#e6f2ff';
+              });
+              element.addEventListener('mouseleave', () => {
+                element.style.backgroundColor = '#f9f9f9';
+              });
+            });
+        });
+    </script>
+</body>
+</html>
