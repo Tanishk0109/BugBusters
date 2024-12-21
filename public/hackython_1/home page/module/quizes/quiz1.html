@@ -6,58 +6,54 @@
     </head>
     <body>
         <div class="app">
-            <h1> Simple quiz </h1>
+            <h1>Simple quiz</h1>
             <div class="quiz">
                 <h2 id="question">Question Goes here</h2>
                 <div id="answer-button">
-                    <button class="btn">Answer 1</button>
-                    <button class="btn">Answer 2</button>
-                    <button class="btn">Answer 3</button>
-                    <button class="btn">Answer 4</button>
                 </div>
                 <button id="next-btn">NEXT</button>
-
             </div>
         </div>
         <script>
             const questions = [
-    {
-        question: "Why is sign language is important?",
-        answers: [
-            { text: "a.It helps people save money", correct: false },
-            { text: "b.It improves communication with people who are deaf or hard of hearing", correct: true },
-            { text: "c.It is legal requirements for everyone", correct: false },
-            { text: "d.It only helps in emergencies", correct: false },
-        ]
-    },
-    {
-        question: "What is the purpose of facial expressions in sign language?",
-        answers: [
-            { text: "a.They show emotions", correct: false },
-            { text: "b.They emphasisze the tone of the sign", correct: false },
-            { text: "c.Both a and b", correct: true },
-            { text: "d.They are not important in sign language", correct: false },
-        ]
-    },
-    {
-        question: "What does the sign for the letter T look like?",
-        answers: [
-            { text: "a.Thumb tucked between the index and middle fingers", correct: true },
-            { text: "b.A fist with the thumb on the side", correct: false },
-            { text: "c.A peace sign turned sideways", correct: false },
-            { text: "d.A flat hand tilted forward", correct: false },
-        ]
-    },
-    {
-        question: "Which handshape is used for the sign of the number 6?",
-        answers: [
-            { text: "a.Thumb and index finger touching", correct: false },
-            { text: "b.Thumb and pinky finger touching", correct: true },
-            { text: "c.Index and middle finger touching", correct: false },
-            { text: "d.Thumb and ring finger touching", correct: false },
-        ]
-    },
-    {
+                {
+                    question: "Why is sign language important?",
+                    answers: [
+                        { text: "a. It helps people save money", correct: false },
+                        { text: "b. It improves communication with people who are deaf or hard of hearing", correct: true },
+                        { text: "c. It is a legal requirement for everyone", correct: false },
+                        { text: "d. It only helps in emergencies", correct: false }
+                    ]
+                },
+                {
+                    question: "What is the purpose of facial expressions in sign language?",
+                    answers: [
+                        { text: "a. They show emotions", correct: false },
+                        { text: "b. They emphasize the tone of the sign", correct: false },
+                        { text: "c. Both a and b", correct: true },
+                        { text: "d. They are not important in sign language", correct: false }
+                    ]
+                },
+                {
+                    question: "The following sign is used for which alphabet?",
+                    image: "tsignfinal.jpg",  
+                    answers: [
+                        { text: "a. Sign for T", correct: true},
+                        { text: "b. Sign for Z", correct: false },
+                        { text: "c. Sign for V", correct: false },
+                        { text: "d. Sign for B", correct: false }
+                    ]
+                },
+                {
+                    question: "Which handshape is used for the sign of the number 6?",
+                    answers: [
+                        { text: "a.", image: "three.jpg", correct: true },
+                        { text: "b.", image: "five.jpg", correct: false },
+                        { text: "c.", image: "four.jpg", correct: false },
+                        { text: "d.", image: "wrong.jpg", correct: false }
+                    ]
+                },
+                {
         question: "Which handshape is used for the sign of the number 3",
         answers: [
             { text: "a.Thumb, index, and middle fingers up", correct: true },
@@ -110,122 +106,137 @@
             { text: "c.Touch your chin with your thumb and index finger,then flick outward", correct: true },
             { text: "d.Tap your chest twice with both hands", correct: false },
         ]
-    },
-    {
-        question:  "What is the sign for A?",
-        image:  "signLangA.jpg",
+    }
+ ];
+
+            const questionElement = document.getElementById("question");
+            const answerButton = document.getElementById("answer-button");
+            const nextButton = document.getElementById("next-btn");
+
+            let currentQuesIndex = 0;
+            let score = 0;
+
+            function startQuiz() {
+                currentQuesIndex = 0;
+                score = 0;
+                nextButton.innerHTML = "Next";
+                showQuestion();
+            }
+
+            function showQuestion() {
+                resetState();
+                let currentQuestion = questions[currentQuesIndex];
+                let questionNo = currentQuesIndex + 1;
+                questionElement.innerHTML = questionNo + " . " + currentQuestion.question;
+
+                if (currentQuestion.image) {
+                    const questionImage = document.createElement("img");
+                    questionImage.src = currentQuestion.image;
+                    questionImage.alt = "Question Image";
+                    questionImage.style.width = "100px"; 
+                    questionElement.appendChild(questionImage);
+                }
+
+                currentQuestion.answers.forEach(answer => {
+                    const button = document.createElement("button");
+                    button.classList.add("btn");
+
         
-        answers: [
-            {text: "D", correct: false},
-            {text: "C", correct: false},
-            {text: "A", correct: true},
-            {text: "P", correct: false}
-        ]
-        
-    }
+                    const answerContent = document.createElement("div");
 
-]
+                    const answerText = document.createElement("span");
+                    answerText.innerHTML = answer.text;
 
-const questionElement = document.getElementById("question");
-const answerButton = document.getElementById("answer-button");
-const nextbutton = document.getElementById("next-btn");
+                    if (answer.image) {
+                        const answerImage = document.createElement("img");
+                        answerImage.src = answer.image;
+                        answerImage.alt = answer.text;
+                        answerImage.style.width = "50px"; 
+                        answerImage.style.height = "50px"; 
+                        answerContent.appendChild(answerImage);
+                    }
 
-let currentQuesIndex = 0;
-let score = 0;
+                    // Append text to the div
+                    answerContent.appendChild(answerText);
 
-function startQuiz() {
-    currentQuesIndex = 0;
-    score = 0;
-    nextbutton.innerHTML = "Next";
-    showQuestion();
-}
+                    // Set the button content as the answer div
+                    button.appendChild(answerContent);
+                    answerButton.appendChild(button);
 
-function showQuestion() {
-    resetState();
-    let currentQuestion = questions[currentQuesIndex];
-    let questionNo = currentQuesIndex + 1;
-    questionElement.innerHTML = questionNo + " . " + currentQuestion.question;
+                    if (answer.correct) {
+                        button.dataset.correct = answer.correct;
+                    }
+                    button.addEventListener("click", selectAnswer);
+                });
+            }
 
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerHTML = answer.text;
-        button.classList.add("btn");
-        answerButton.appendChild(button);
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
-        }
-        button.addEventListener("click", selectAnswer);
-    });
-}
+            function resetState() {
+                nextButton.style.display = "none";
+                while (answerButton.firstChild) {
+                    answerButton.removeChild(answerButton.firstChild);
+                }
+            }
 
-function resetState() {
-    nextbutton.style.display = "none";
-    while (answerButton.firstChild) {
-        answerButton.removeChild(answerButton.firstChild);
-    }
-}
+            function selectAnswer(e) {
+                const selectedBtn = e.target.closest("button");
+                const isCorrect = selectedBtn.dataset.correct === "true";
+                if (isCorrect) {
+                    selectedBtn.classList.add("correct");
+                    score++;
+                } else {
+                    selectedBtn.classList.add("incorrect");
+                }
+                Array.from(answerButton.children).forEach(button => {
+                    if (button.dataset.correct === "true") {
+                        button.classList.add("correct");
+                    }
+                    button.disabled = true;
+                });
+                nextButton.style.display = "block";
+            }
 
-function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        score++;
-    } else {
-        selectedBtn.classList.add("incorrect");
-    }
-    Array.from(answerButton.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
-        }
-        button.disabled = true;
-    });
-    nextbutton.style.display = "block";
-}
+            function getRemarks(score) {
+                const percentage = (score / questions.length) * 100;
+                if (percentage >= 80) {
+                    return "Excellent";
+                } else if (percentage >= 60) {
+                    return "Good";
+                } else if (percentage >= 40) {
+                    return "Average";
+                } else {
+                    return "Poor";
+                }
+            }
 
-function getRemarks(score) {
-    const percentage = (score / questions.length) * 100;
+            function showScore() {
+                resetState();
+                const remarks = getRemarks(score);
+                questionElement.innerHTML = `
+                    You scored ${score} out of ${questions.length}!<br> 
+                    Remark: ${remarks}
+                `;
+                nextButton.innerHTML = "Restart Quiz";
+                nextButton.style.display = "block";
+            }
 
-    if (percentage >= 80) {
-        return "Excellent";
-    } else if (percentage >= 60) {
-        return "Good";
-    } else if (percentage >= 40) {
-        return "Average";
-    } else {
-        return "Poor";
-    }
-}
+            function handleNextQuestion() {
+                currentQuesIndex++;
+                if (currentQuesIndex < questions.length) {
+                    showQuestion();
+                } else {
+                    showScore();
+                }
+            }
 
-function showScore() {
-    resetState();
-    const remarks = getRemarks(score);
-    questionElement.innerHTML = `
-        You scored ${score} out of ${questions.length}!<br> 
-        Remark: ${remarks}
-    `;
-    nextbutton.innerHTML = "Dashboard";
-    nextbutton.style.display = "block";
-}
+            nextButton.addEventListener("click", () => {
+                if (currentQuesIndex < questions.length) {
+                    handleNextQuestion();
+                } else {
+                    startQuiz();
+                }
+            });
 
-function handleNextQuestion() {
-    currentQuesIndex++;
-    if (currentQuesIndex < questions.length) {
-        showQuestion();
-    } else {
-        showScore();
-    }
-}
-
-nextbutton.addEventListener("click", () => {
-    if (currentQuesIndex < questions.length) {
-        handleNextQuestion();
-    } else {
-        startQuiz();
-    }
-});
-
-startQuiz();
+            startQuiz();
         </script>
-    </body>
+    </body>
 </html>
