@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Tutorials with Videos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .tutorial {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .tutorial-header {
+            background: #4a69bd;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tutorial-title {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .tutorial-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .tutorial.active .tutorial-content {
+            max-height: 2000px;
+            transition: max-height 0.5s ease-in;
+        }
+        .tutorial-description {
+            margin-top: 10px;
+            color: #666;
+        }
+        .start-button {
+            display: inline-block;
+            background: #4a69bd;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        .start-button:hover {
+            background: #3c5aa6;
+        }
+        .chevron {
+            transition: transform 0.3s ease;
+        }
+        .tutorial.active .chevron {
+            transform: rotate(180deg);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Language Tutorials with Videos</h1>
+        <div id="tutorials-list"></div>
+    </div>
+
+    <script>
+        const tutorials = [
+            {
+                id: 1,
+                title: "Introduction to Sign Language",
+                description: "Learn the basics of sign language and its importance in communication.",
+                content: "Sign language is a visual means of communicating using gestures, facial expressions, and body language. This tutorial will introduce you to the world of sign language, its history, and its significance in the deaf community.",
+                videoUrl: "https://www.youtube.com/embed/v1desDduz5M"
+            },
+            {
+                id: 2,
+                title: "Fingerspelling and Numbers",
+                description: "Master the hand shapes for the alphabet and numbers in sign language.",
+                content: "Fingerspelling is an important part of sign language, used for spelling out names and words that don't have a specific sign. This tutorial will teach you how to form each letter of the alphabet and numbers 0-9 using your hands.",
+                videoUrl: "https://www.youtube.com/embed/tkMg8g8vVUo"
+            },
+            {
+                id: 3,
+                title: "Food and Home Signs",
+                description: " In this tutorial, you will learn two essential signs in American Sign Language (ASL): that is home and food",
+                content: "",
+                videoUrl: "https://www.youtube.com/embed/4QOuEOi_KsY"
+            },
+            
+            {
+                id: 4,
+                title: "Basic Greetings and Phrases",
+                description: "Learn common greetings and everyday phrases in sign language.",
+                content: "The signs for and  are essential for basic communication in daily life, helping individuals express fundamental needs like where they live or when they're hungry. Mastering these signs promotes inclusivity, fosters social interaction, and strengthens connections within the Deaf and hearing communities for more knowledge check out total playlist ",
+                videoUrl: "https://www.youtube.com/embed/y9Rj_X0IsKY"
+                
+            },
+            {
+                id: 5,
+                title: "Emotions and Facial Expressions",
+                description: "Understand the role of facial expressions in conveying emotions in sign language.",
+                content: "Facial expressions are crucial in sign language to convey tone, emotion, and emphasis. This tutorial will guide you through various facial expressions used in sign language and how they modify the meaning of signs.",
+                videoUrl: "https://www.youtube.com/embed/QYYMBAEs6Vg"
+                
+                
+            },
+            {
+                id: 6,
+                title: "Professional Signs",
+                description: "Profession signs in sign language are essential for discussing various careers and occupations, enabling clear communication about job roles and responsibilities. Mastering these signs is valuable in both professional environments and social interactions related to work..",
+                content: "Profession signs in sign language are essential for discussing various careers and occupations, enabling clear communication about job roles and responsibilities. Mastering these signs is valuable in both professional environments and social interactions related to work.",
+                videoUrl: "https://www.youtube.com/embed/2r35__fFKQA?list=PLMN7QCuj6dfZZIfLeSwBWJEv8mL4TgBKh"
+            },
+            {
+                id: 7,
+                title: "Medical Signs",
+                description: "Understand the signs of medical expressions.",
+                content: "Medical signs in sign language are crucial for conveying health-related information, allowing individuals to express symptoms, conditions, and medical needs clearly. Learning these signs ensures better communication in emergency situations and promotes effective care within healthcare settings.",
+                videoUrl: "https://www.youtube.com/embed/7zyCRgWkl4I?list=PLMN7QCuj6dfZZIfLeSwBWJEv8mL4TgBKh"
+              
+            },
+            {
+                id: 8,
+                title: "100 Asl signs in 5 minutes",
+                description: "Let's learn 100 Asl signs in five minutes",
+                content: "Keep concentration on video then you can learn the signs in just 5 minutes",
+                videoUrl: "https://www.youtube.com/embed/G6hVRVG74lc"
+                
+            }
+        ];
+
+        function createTutorialElement(tutorial) {
+            const tutorialElement = document.createElement('div');
+            tutorialElement.className = 'tutorial';
+            tutorialElement.innerHTML = `
+                <div class="tutorial-header">
+                    <h2 class="tutorial-title">${tutorial.title}</h2>
+                    <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="tutorial-content">
+                    <p class="tutorial-description">${tutorial.description}</p>
+                    <p>${tutorial.content}</p>
+                    <div class="video-container">
+                        <iframe src="${tutorial.videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <a href="#" class="start-button">Start Tutorial</a>
+                </div>
+            `;
+
+            tutorialElement.querySelector('.tutorial-header').addEventListener('click', () => {
+                tutorialElement.classList.toggle('active');
+            });
+
+            return tutorialElement;
+        }
+
+        function renderTutorials() {
+            const tutorialsList = document.getElementById('tutorials-list');
+            tutorials.forEach(tutorial => {
+                const tutorialElement = createTutorialElement(tutorial);
+                tutorialsList.appendChild(tutorialElement);
+            });
+        }
+
+        renderTutorials();
+    </script>
+</body>
+</html>
