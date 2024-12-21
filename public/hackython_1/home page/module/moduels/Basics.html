@@ -1,253 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 1: Basic Foundation of Sign Language</title>
-    <link rel="stylesheet" href="module_1.css">
-</head>
+    <title>Introduction to the Importance of Sign Language</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #8a2387, #e94057, #f27121);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .image-text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: #6f286d;
+            margin-top: 0;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #e94057;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .image-text-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            img {
+                max-width: 25%;
+                margin-right: 2rem;
+                margin-bottom: 0;
+                height: 25%;
+            }
+        }
+        button.ho {
+            padding: 10px 20px; /* Button padding */
+            font-size: 16px; /* Font size */
+            cursor: pointer; /* Pointer cursor on hover */
+            border: none; /* Remove default button border */
+            background-color: #4CAF50; /* Button background color */
+            color: white; /* Text color */
+            text-align: center; /* Center text inside the button */
+        }
+        button.ho a {
+            text-decoration: none; /* Remove underline */
+            color: white; /* Text color to match the button */
+        }
+
+        
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
 <body>
     <div class="container">
-        <header>
-            <h1>Module 1: Basic Foundation of Sign Language</h1>
-        </header>
-
-        <main>
-            <section id="introduction">
-                <h2>Introduction</h2>
-                <p>Welcome to the first module of our sign language course. In this lesson, we'll cover the basics of
-                    sign language, including the alphabet, numbers, and essential vocabulary. Remember, practice is key
-                    to mastering these fundamentals!</p>
-            </section>
-
-            <section id="alphabet">
-                <h2>1. Sign Language Alphabet</h2>
-                <p>The sign language alphabet is used for finger spelling words. It's essential for spelling names or
-                    words that don't have a specific sign.</p>
-                <div class="grid">
-                    <div class="grid-item">
-                        <img src="img_A.webp
-                        " alt="Sign for letter A" width="100" height="100">
-                        <p>A</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="img_B.jpg" alt="Sign for letter B" style="margin-top: 25px;" width="100" height="100">
-                        <p>B</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="img_c.jpg" alt="Sign for letter C"  style="margin-top: 25px;" width="100" height="100">
-                        <p>C</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>D</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>E</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>F</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>G</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>H</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>I</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>J</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>H</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>K</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>L</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>M</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>N</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>O</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>P</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>Q</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>R</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>S</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>T</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>U</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>V</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>W</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>X</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>Y</p>
-                    </div>
-                    <!-- Repeat for C through Z -->
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=Z" alt="Sign for letter Z" width="100" height="100">
-                        <p>Z</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="numbers">
-                <h2>2. Numbers in Sign Language</h2>
-                <p>Learning to sign numbers is crucial for expressing quantities, dates, and times.</p>
-                <div class="grid">
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=0" alt="Sign for number 0" width="100" height="100">
-                        <p>0</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=1" alt="Sign for number 1" width="100" height="100">
-                        <p>1</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>2</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>3</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>4</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>5</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>6</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>7</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>8</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=A" alt="Sign for letter A" width="100" height="100">
-                        <p>9</p>
-                    </div>
-                   
-                   
-                    <!-- Repeat for 2 through 9 -->
-                    <div class="grid-item">
-                        <img src="/placeholder.svg?text=9" alt="Sign for number 9" width="100" height="100">
-                        <p>10</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="basic-vocabulary">
-                <h2>3. Basic Vocabulary</h2>
-                <p>Let's learn some essential signs for everyday communication. Remember, facial expressions and body
-                    language are crucial in sign language!</p>
-                <div class="vocabulary-grid">
-                    <div class="vocab-item">
-                        <img src="/placeholder.svg?text=Hello" alt="Sign for Hello" width="150" height="150">
-                        <h3>Hello</h3>
-                        <p>Wave your hand, palm facing out, near your forehead.</p>
-                    </div>
-                    <div class="vocab-item">
-                        <img src="/placeholder.svg?text=Thank+You" alt="Sign for Thank You" width="150" height="150">
-                        <h3>Thank You</h3>
-                        <p>Touch your chin with your fingertips, then move your hand outward.</p>
-                    </div>
-                    <div class="vocab-item">
-                        <img src="/placeholder.svg?text=Please" alt="Sign for Please" width="150" height="150">
-                        <h3>Please</h3>
-                        <p>Rub your chest in a circular motion with your palm.</p>
-                    </div>
-                    <div class="vocab-item">
-                        <img src="/placeholder.svg?text=Sorry" alt="Sign for Sorry" width="150" height="150">
-                        <h3>Sorry</h3>
-                        <p>Make a fist and rub it in a circular motion over your chest.</p>
-                    </div>
-                    <div class="vocab-item">
-                        <img src="/placeholder.svg?text=Yes" alt="Sign for Yes" width="150" height="150">
-                        <h3>Yes</h3>
-                        <p>Make your hand into a fist and nod it like a nodding head.</p>
-                    </div>
-                    <div class="vocab-item">
-                        <img src="/placeholder.svg?text=No" alt="Sign for No" width="150" height="150">
-                        <h3>No</h3>
-                        <p>Make your first two fingers like scissors and tap them together.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="practice-tips">
-                <h2>Practice Tips</h2>
-                <ul>
-                    <li>Practice fingerspelling your name and common words you use daily.</li>
-                    <li>Use a mirror to check your hand shapes and facial expressions.</li>
-                    <li>Try to incorporate the basic vocabulary into your daily routine.</li>
-                    <li>Watch videos of native signers to improve your understanding of natural signing flow.</li>
-                    <li>Practice with a friend or family member to make learning more interactive and fun.</li>
-                </ul>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2023 Sign Language Learning. All rights reserved.</p>
-        </footer>
+        <h1>Introduction to the  Sign Language</h1>
+        
+        <div class="content-box">
+            <p>
+                Imagine living in a world where you can't hear the voices of your loved ones, or understand the conversations happening around you. This is the reality for millions of people who are deaf or hard of hearing. In such a world, communication becomes a challenge—unless we make the effort to bridge the gap.
+            </p>
+            
+            <div class="image-text-container">
+                <img src="sign_00.jpg" height="3px" alt="People communicating in sign language">
+                <p>
+                    Learning sign language is a powerful way to connect with people who communicate using their hands, facial expressions, and gestures instead of sound. It's not just about learning a new language—it's about becoming part of a community and empowering individuals to express themselves, share ideas, and participate fully in society.
+                </p>
+            </div>
+            
+            <p>
+                Sign language is the key that opens doors to inclusion, understanding, and respect. By learning it, we not only enrich our own lives but also make the world more accessible and compassionate for everyone.
+            </p>
+        </div>
+        
+        <div class="content-box">
+            <h2>Benefits of Learning Sign Language</h2>
+            <ul>
+                <li>Become an ally to the deaf and hard of hearing community</li>
+                <li>Foster better relationships and break down communication barriers</li>
+                <li>Engage in meaningful conversations and offer support</li>
+                <li>Create an inclusive environment where no one feels isolated</li>
+            </ul>
+        </div>
+        
+        <div class="content-box">
+            <p class="highlight">
+                Ultimately, sign language is more than just a tool—it's a symbol of respect, empathy, and equality. It helps create a world where everyone, regardless of their hearing ability, can be heard and understood.
+            </p>
+        </div>
+        <button class="ho"><a href="home page/home.html">Login</a> </button>
     </div>
 </body>
-
 </html>
